@@ -40,6 +40,6 @@ This project demonstrates Full and Incremental Extraction techniques using a syn
 ---
 
 ### 💾 Save New Timestamp
--Finally after extraction, the latest timestamp is saved to track future changes.
+- Finally after extraction, the latest timestamp is saved to track future changes.
 
 ![Save Timestamp](save_timestamp.png)
