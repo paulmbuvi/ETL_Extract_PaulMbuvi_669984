@@ -23,4 +23,23 @@ This project demonstrates Full and Incremental Extraction techniques using a syn
 - `.gitignore`: To ignore unneeded files in Git.
 
 ## 📷 Screenshots
-*(Optional: Add screenshots of your notebook output here.)*
+## 📊 ETL Extraction Overview
+
+### 🧾 Full Extraction
+- In this step, I was able to load the full dataset from `custom_data.csv`.
+
+![Full Extraction](full_extraction.png)
+
+---
+
+### 🔁 Incremental Extraction
+- In this section, I was able to read the last extraction timestamp and only pull new rows.
+
+![Incremental Extraction](incremental_extraction.png)
+
+---
+
+### 💾 Save New Timestamp
+-Finally after extraction, the latest timestamp is saved to track future changes.
+
+![Save Timestamp](save_timestamp.png)
