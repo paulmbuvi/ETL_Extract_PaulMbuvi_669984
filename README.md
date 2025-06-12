@@ -47,6 +47,7 @@ This project demonstrates Full and Incremental Extraction techniques using a syn
 ### Transformed Full Dataset
 
 - In here I was able to make changes and new codes in my VScode which helped me in establishing this.
+- I handled missing values using .fillna() for numerical columns (e.g., median imputation).
 - I was able to Transform the full dataset by cleaning missing values, adding a tax column (amount_with_tax), and categorizing amounts into levels.
 - I applied the same transformation logic to the incremental dataset to maintain consistency.
 - Finally, I saved the results into transformed_full.csv and transformed_incremental.csv for analysis.
