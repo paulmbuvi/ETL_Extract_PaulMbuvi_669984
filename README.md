@@ -43,3 +43,12 @@ This project demonstrates Full and Incremental Extraction techniques using a syn
 - Finally after extraction, the latest timestamp is saved to track future changes.
 
 ![Save Timestamp](save_timestamp.png)
+
+### Transformed Full
+- In here I was able to make changes and new codes in my VScode which helped me in establishing this.
+
+- ![Transformed Full](transformed_full.png)
+
+### Transformed Incremental
+
+- ![Transformed Incremental](transformed_incremental.png)
