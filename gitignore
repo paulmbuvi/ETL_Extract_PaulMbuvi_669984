@@ -1,5 +1,21 @@
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+
+# Python cache
 __pycache__/
+
+# Logs and temp files
 *.log
-*.sqlite
+*.tmp
+
+# SQLite database files
+*.db
+
+# Parquet files
+*.parquet
+
+# Optional extracted logs or flags
 last_extraction.txt
+
+# Loaded output folder (optional)
+loaded/
