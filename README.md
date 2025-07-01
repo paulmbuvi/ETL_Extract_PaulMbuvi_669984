@@ -6,14 +6,14 @@
 ---
 
 ## 🔍 Description
-This project demonstrates Full and Incremental **Extraction** and **Loading** techniques using a synthetic sales dataset. The notebooks walk through the ETL process including loading the transformed data into structured formats like **Parquet** and **SQLite**.
+This project demonstrates Full and Incremental **Extraction** and **Loading** techniques using a synthetic sales dataset. The notebooks walk through the ETL process, including loading the transformed data into structured formats like **Parquet** and **SQLite**.
 
 ---
 
 ## 🛠️ Tools Used
 - Python
-- Pandas
-- SQLite (via `sqlite3`)
+- pandas
+- SQLite (`sqlite3`)
 - fastparquet
 - Jupyter Notebook
 
@@ -22,16 +22,16 @@ This project demonstrates Full and Incremental **Extraction** and **Loading** te
 ## 🚀 How to Run
 
 ### 1. Extraction
-1. Open `etl_extract.ipynb`
-2. Run all cells to simulate full and incremental extraction
+- Open `etl_extract.ipynb`
+- Run all cells to simulate full and incremental extraction
 
 ### 2. Load
-1. Open `3_etl_load.ipynb`
-2. Run all cells to:
-   - Load transformed CSVs
-   - Save data to Parquet files
-   - Save data to SQLite databases
-   - Preview contents
+- Open `etl_load.ipynb`
+- Run all cells to:
+  - Load transformed CSVs
+  - Save data to Parquet files
+  - Save data to SQLite databases
+  - Preview loaded data
 
 ---
 
@@ -40,42 +40,26 @@ This project demonstrates Full and Incremental **Extraction** and **Loading** te
 | File/Folder                 | Description                                  |
 |----------------------------|----------------------------------------------|
 | `etl_extract.ipynb`        | Extraction logic                             |
-| `3_etl_load.ipynb`         | Loading logic (Parquet + SQLite)             |
-| `transformed/`             | Contains cleaned `transformed_full.csv` and `transformed_incremental.csv` |
-| `loaded/`                  | Output folder for `.parquet` and `.db` files |
-| `custom_data.csv`          | Simulated dataset used for extraction        |
-| `last_extraction.txt`      | Stores timestamp for incremental extraction  |
-| `.gitignore`               | File/folder exclusions for Git tracking      |
-
-## 📷 Screenshots
-
-### 🧾 Full Extraction
-
-![Full Extraction](full_extraction.png)
+| `etl_load.ipynb`           | Load logic (Parquet + SQLite)                |
+| `transformed/`             | Cleaned datasets (`transformed_full.csv`, `transformed_incremental.csv`) |
+| `loaded_data/`             | Output folder with `.parquet` and `.db` files |
+| `last_extraction.txt`      | Timestamp log for incremental extraction     |
+| `.gitignore`               | Files excluded from Git tracking             |
 
 ---
 
-### 🔁 Incremental Extraction
+## 🧾 Lab 5 – Load Summary
 
-![Incremental Extraction](incremental_extraction.png)
+- Loaded full and incremental transformed data
+- Saved to **Parquet** using `pandas.to_parquet()`
+- Saved to **SQLite** using `sqlite3` and `to_sql()`
+- Verified with `.head()` and SQL SELECT queries
 
----
+**Output Location:** `loaded_data/`
 
-### 💾 Save New Timestamp
+**Sample Code:**
+```python
+full_df.to_parquet("loaded_data/full_data.parquet", index=False)
 
-### Transformed Full Dataset
-
-- I made changes and new code improvements in VS Code.
-- Handled missing values using `.fillna()` with median imputation for numerical columns.
-- Added a tax column (`amount_with_tax`) and categorized amounts into levels.
-- Applied the same transformations to both the full and incremental datasets for consistency.
-- Saved results to `transformed/transformed_full.csv` and `transformed/transformed_incremental.csv`.
-
-![Transformed Full](transformed_full.png)
-
-### Transformed Incremental Dataset
-
-![Transformed Incremental](transformed_incremental.png)
-
-![Save Timestamp](save_timestamp.png)
-
+with sqlite3.connect("loaded_data/full_data.db") as conn:
+    full_df.to_sql("full_data", conn, if_exists="replace", index=False)
